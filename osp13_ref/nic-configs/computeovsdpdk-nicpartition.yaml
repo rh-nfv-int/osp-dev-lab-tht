@@ -180,13 +180,13 @@ resources:
                 routes:
                   list_concat_unique:
                     - get_param: ControlPlaneStaticRoutes
-                    - - default: false
+                    - - default: true
                         next_hop:
                           get_param: ControlPlaneDefaultRoute
               - type: interface
                 name: nic1
-                use_dhcp: true
-                defroute: true
+                use_dhcp: false
+                defroute: false
               - type: sriov_vf
                 device: nic3
                 vfid: 1
