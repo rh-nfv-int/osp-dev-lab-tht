@@ -11,8 +11,8 @@ parameter_defaults:
   ControllerHostnameFormat: 'controller-%index%'
   ComputeSriovOffloadHostnameFormat: 'cmpt-offload-%index%'
 
-  NeutronTunnelTypes: 'vxlan'
-  NeutronNetworkType: ['vxlan', 'vlan']
+  NeutronTunnelTypes: 'geneve'
+  NeutronNetworkType: ['geneve', 'vlan']
 
   OvercloudControllerFlavor: "controller"
   OvercloudComputeFlavor: "compute"
