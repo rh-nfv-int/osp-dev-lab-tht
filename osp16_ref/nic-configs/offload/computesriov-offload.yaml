@@ -202,7 +202,7 @@ resources:
                 - ip_netmask:
                     get_param: StorageIpSubnet
               - type: ovs_bridge
-                name: br-offload
+                name: br-tenant
                 mtu: 9000
                 use_dhcp: false
                 members:
