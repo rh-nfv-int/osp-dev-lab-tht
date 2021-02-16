@@ -1,3 +1,6 @@
+# NOTE: only NeutronNetworkVLANRanges is required in this file
+# as it will be modified by scripts if deployed on other clusters
+# other entries can be moved to individual network-envirment-<feature> file in future
 parameter_defaults:
   NeutronBridgeMappings: 'datacentre:br-ex,sriov1:br-tenant,dpdk2:br-link2'
   NeutronNetworkVLANRanges: 'dpdk1:502:505,dpdk2:506:510,sriov1:502:505,sriov2:506:510'

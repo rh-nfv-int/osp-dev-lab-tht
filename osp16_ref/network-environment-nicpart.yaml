@@ -1,10 +1,9 @@
 resource_registry:
-  OS::TripleO::ComputeOvsDpdkSriov::Net::SoftwareConfig: nic-configs/computeovsdpdk-nicpartition.yaml
-  OS::TripleO::Controller::Net::SoftwareConfig: nic-configs/controller-nicpartition.yaml
+  OS::TripleO::ComputeOvsDpdkSriov::Net::SoftwareConfig: nic-configs/nicpart/computeovsdpdk-nicpartition.yaml
+  OS::TripleO::Controller::Net::SoftwareConfig: nic-configs/nicpart/controller-nicpartition.yaml
 
 parameter_defaults:
   NeutronPhysicalDevMappings: ["sriov1:eno3", "sriov2:eno4"]
-
   NovaPCIPassthrough:
   - devname: "eno3"
     trusted: "true"

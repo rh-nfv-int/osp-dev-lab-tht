@@ -1,8 +1,7 @@
 resource_registry:
-  OS::TripleO::ComputeSriovOffload::Net::SoftwareConfig: nic-configs/computesriov-offload.yaml
-  OS::TripleO::Controller::Net::SoftwareConfig: nic-configs/controller-offload.yaml
+  OS::TripleO::ComputeSriovOffload::Net::SoftwareConfig: nic-configs/offload/computesriov-offload.yaml
+  OS::TripleO::Controller::Net::SoftwareConfig: nic-configs/offload/controller-offload.yaml
 
-  
 parameter_defaults:
   NovaPCIPassthrough:
   - devname: "ens1f0"
