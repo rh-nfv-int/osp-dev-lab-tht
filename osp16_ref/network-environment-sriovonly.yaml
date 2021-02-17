@@ -1,5 +1,5 @@
 resource_registry:
-  OS::TripleO::ComputeOvsDpdkSriov::Net::SoftwareConfig: nic-configs/computesriov.yaml
+  OS::TripleO::ComputeSriov::Net::SoftwareConfig: nic-configs/computesriov.yaml
   OS::TripleO::Controller::Net::SoftwareConfig: nic-configs/controller.yaml
 
 parameter_defaults:
