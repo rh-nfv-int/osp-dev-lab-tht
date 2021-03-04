@@ -15,7 +15,7 @@ if [ ! -d /home/stack/images ]; then
     popd
 fi
 
-openstack overcloud roles generate -o $HOME/roles_data.yaml Controller ComputeSriov
+openstack overcloud roles generate -o $HOME/roles_data.yaml ControllerSriov ComputeSriov
 
 openstack overcloud deploy $PARAMS \
     --templates \

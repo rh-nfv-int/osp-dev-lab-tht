@@ -3,18 +3,21 @@ parameter_defaults:
 
   ControlPlaneSubnet: leaf0
   ControllerControlPlaneSubnet: leaf0
+  ControllerSriovControlPlaneSubnet: leaf0
   ComputeControlPlaneSubnet: leaf0
   ComputeOvsDpdkSriovControlPlaneSubnet: leaf0
   ComputeSriovControlPlaneSubnet: leaf0
   ComputeSriovOffloadControlPlaneSubnet: leaf0
 
   ControllerHostnameFormat: 'controller-%index%'
+  ControllerSriovHostnameFormat: 'controller-%index%'
   ComputeSriovOffloadHostnameFormat: 'cmpt-offload-%index%'
 
   NeutronTunnelTypes: 'geneve'
   NeutronNetworkType: ['geneve', 'vlan']
 
   OvercloudControllerFlavor: "controller"
+  OvercloudControllerSriovFlavor: "controller"
   OvercloudComputeFlavor: "compute"
   OvercloudComputeOvsDpdkFlavor: "compute"
   OvercloudComputeOvsDpdkSriovFlavor: "compute"
@@ -22,6 +25,7 @@ parameter_defaults:
   OvercloudComputeSriovOffloadFlavor: "compute"
 
   ControllerCount: 3
+  ControllerSriovCount: 3
   ComputeOvsDpdkSriovCount: 2
   ComputeSriovCount: 2
   ComputeSriovOffloadCount: 2
