@@ -16,7 +16,7 @@ if [ ! -d /home/stack/images ]; then
 fi
 
 # Always generate roles_data file
-openstack overcloud roles generate -o $HOME/roles_data.yaml Controller ComputeSriov:ComputeSriovOffload
+openstack overcloud roles generate -o $HOME/roles_data.yaml ControllerSriov ComputeSriov:ComputeSriovOffload
 
 openstack overcloud deploy $PARAMS \
     --templates \
