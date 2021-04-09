@@ -15,6 +15,11 @@ parameter_defaults:
 
   NeutronTunnelTypes: 'geneve'
   NeutronNetworkType: ['geneve', 'vlan']
+  NeutronEnableDVR: false
+  NeutronPluginExtensions: "port_security,qos,segments,trunk,placement"
+  NeutronSriovAgentExtensions: "qos"
+  #NeutronTunnelTypes: 'vxlan'
+  #NeutronNetworkType: ['vxlan', 'vlan']
 
   OvercloudControllerFlavor: "controller"
   OvercloudControllerSriovFlavor: "controller"
