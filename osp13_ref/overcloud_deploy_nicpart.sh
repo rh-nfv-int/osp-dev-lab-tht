@@ -16,6 +16,8 @@ if [ ! -d /home/stack/images ]; then
     sed -i 's/processutils.execute(\*cmd, \*\*kwargs)/processutils.execute(\*cmd, delay_on_retry=True, attempts=10, \*\*kwargs)/' mount_image/usr/lib/python2.7/site-packages/os_net_config/sriov_config.py
     guestunmount mount_image
 
+    virt-sysprep --operation machine-id -a overcloud-full.qcow2
+
     openstack overcloud image upload --image-path /home/stack/images/ --update-existing
     for i in $(openstack baremetal node list -c UUID -f value); do openstack overcloud node configure $i; done
     popd

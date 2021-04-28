@@ -10,6 +10,7 @@ if [ ! -d /home/stack/images ]; then
     sudo yum install libguestfs-tools -y
     export LIBGUESTFS_BACKEND=direct
     virt-customize --root-password password:redhat -a overcloud-full.qcow2
+    virt-sysprep --operation machine-id -a overcloud-full.qcow2
     openstack overcloud image upload --image-path /home/stack/images/ --update-existing
     for i in $(openstack baremetal node list -c UUID -f value); do openstack overcloud node configure $i; done
     popd
