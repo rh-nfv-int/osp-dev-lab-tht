@@ -1,14 +1,6 @@
 parameter_defaults:
   DnsServers: ['10.11.5.19']
 
-  ControlPlaneSubnet: leaf0
-  ControllerControlPlaneSubnet: leaf0
-  ControllerSriovControlPlaneSubnet: leaf0
-  ComputeControlPlaneSubnet: leaf0
-  ComputeOvsDpdkSriovControlPlaneSubnet: leaf0
-  ComputeSriovControlPlaneSubnet: leaf0
-  ComputeSriovOffloadControlPlaneSubnet: leaf0
-
   ControllerHostnameFormat: 'controller-%index%'
   ControllerSriovHostnameFormat: 'controller-%index%'
   ComputeSriovOffloadHostnameFormat: 'cmpt-offload-%index%'
