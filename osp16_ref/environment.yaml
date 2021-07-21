@@ -5,13 +5,13 @@ parameter_defaults:
   ControllerSriovHostnameFormat: 'controller-%index%'
   ComputeSriovOffloadHostnameFormat: 'cmpt-offload-%index%'
 
-  NeutronTunnelTypes: 'geneve'
-  NeutronNetworkType: ['geneve', 'vlan']
-  NeutronEnableDVR: false
-  NeutronPluginExtensions: "port_security,qos,segments,trunk,placement"
-  NeutronSriovAgentExtensions: "qos"
-  #NeutronTunnelTypes: 'vxlan'
-  #NeutronNetworkType: ['vxlan', 'vlan']
+  #NeutronTunnelTypes: 'geneve'
+  #NeutronNetworkType: ['geneve', 'vlan']
+  #NeutronEnableDVR: false
+  #NeutronPluginExtensions: "port_security,qos,segments,trunk,placement"
+  #NeutronSriovAgentExtensions: "qos"
+  NeutronTunnelTypes: 'vxlan'
+  NeutronNetworkType: ['vxlan', 'vlan']
 
   OvercloudControllerFlavor: "controller"
   OvercloudControllerSriovFlavor: "controller"

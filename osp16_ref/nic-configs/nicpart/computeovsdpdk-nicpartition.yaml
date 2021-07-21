@@ -204,12 +204,12 @@ resources:
               - type: sriov_pf
                 name: nic3
                 use_dhcp: false
-                numvfs: 4
+                numvfs: 8
                 promisc: true
               - type: sriov_pf
                 name: nic4
                 use_dhcp: false
-                numvfs: 4
+                numvfs: 8
                 promisc: true
               - type: ovs_user_bridge
                 name: br-tenant
@@ -225,11 +225,31 @@ resources:
                           get_param: TenantNetworkVlanID
                 members:
                 - type: ovs_dpdk_port
-                  name: dpdk-port-nic3
+                  name: dpdk-port-nic3-vf0
                   members:
                   - type: sriov_vf
                     device: nic3
                     vfid: 0
+              - type: ovs_user_bridge
+                name: br-dpdk1
+                use_dhcp: false
+                members:
+                - type: ovs_dpdk_port
+                  name: dpdk-port-nic3-vf1
+                  members:
+                  - type: sriov_vf
+                    device: nic3
+                    vfid: 1
+              - type: ovs_user_bridge
+                name: br-dpdk2
+                use_dhcp: false
+                members:
+                - type: ovs_dpdk_port
+                  name: dpdk-port-nic4-vf1
+                  members:
+                  - type: sriov_vf
+                    device: nic4
+                    vfid: 1
 
 outputs:
   OS::stack_id:
