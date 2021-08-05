@@ -13,10 +13,11 @@ parameter_defaults:
   OvercloudComputeSriovFlavor: "compute"
   OvercloudComputeSriovOffloadFlavor: "compute"
 
-  ControllerCount: 3
+  ControllerCount: 1
   ControllerSriovCount: 3
   ComputeOvsDpdkSriovCount: 2
-  ComputeSriovCount: 2
+  ComputeOvsDpdkCount: 1
+  ComputeSriovCount: 1
   ComputeSriovOffloadCount: 2
 
   NtpServer: "clock.redhat.com"

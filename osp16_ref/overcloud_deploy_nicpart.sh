@@ -30,7 +30,8 @@ openstack overcloud deploy $PARAMS \
     -e /usr/share/openstack-tripleo-heat-templates/environments/services/neutron-ovs-dpdk.yaml \
     -e /usr/share/openstack-tripleo-heat-templates/environments/services/neutron-sriov.yaml \
     -e /usr/share/openstack-tripleo-heat-templates/environments/disable-telemetry.yaml \
-    -e $USER_THT/debug.yaml \
+    -e /usr/share/openstack-tripleo-heat-templates/environments/debug.yaml \
+    -e /usr/share/openstack-tripleo-heat-templates/environments/config-debug.yaml \
     -e $USER_THT/environment.yaml \
     -e $USER_THT/network-environment.yaml \
     -e $USER_THT/network-environment-nicpart.yaml \
