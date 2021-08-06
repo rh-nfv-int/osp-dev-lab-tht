@@ -5,14 +5,6 @@ parameter_defaults:
   ControllerSriovHostnameFormat: 'controller-%index%'
   ComputeSriovOffloadHostnameFormat: 'cmpt-offload-%index%'
 
-  NeutronTunnelTypes: 'geneve'
-  NeutronNetworkType: ['geneve', 'vlan']
-  NeutronEnableDVR: false
-  NeutronPluginExtensions: "port_security,qos,segments,trunk,placement"
-  NeutronSriovAgentExtensions: "qos"
-  #NeutronTunnelTypes: 'vxlan'
-  #NeutronNetworkType: ['vxlan', 'vlan']
-
   OvercloudControllerFlavor: "controller"
   OvercloudControllerSriovFlavor: "controller"
   OvercloudComputeFlavor: "compute"
@@ -21,10 +13,11 @@ parameter_defaults:
   OvercloudComputeSriovFlavor: "compute"
   OvercloudComputeSriovOffloadFlavor: "compute"
 
-  ControllerCount: 3
+  ControllerCount: 1
   ControllerSriovCount: 3
   ComputeOvsDpdkSriovCount: 2
-  ComputeSriovCount: 2
+  ComputeOvsDpdkCount: 1
+  ComputeSriovCount: 1
   ComputeSriovOffloadCount: 2
 
   NtpServer: "clock.redhat.com"

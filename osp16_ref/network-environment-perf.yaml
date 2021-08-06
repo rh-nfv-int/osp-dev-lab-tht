@@ -1,16 +1,18 @@
 resource_registry:
   OS::TripleO::ComputeOvsDpdkSriov::Net::SoftwareConfig: nic-configs/computeovsdpdksriov.yaml
+  OS::TripleO::ComputeSriov::Net::SoftwareConfig: nic-configs/computesriov.yaml
+  OS::TripleO::ComputeOvsDpdk::Net::SoftwareConfig: nic-configs/computeovsdpdk.yaml
   OS::TripleO::Controller::Net::SoftwareConfig: nic-configs/controller.yaml
   OS::TripleO::ControllerSriov::Net::SoftwareConfig: nic-configs/controller.yaml
 
 parameter_defaults:
-  NeutronTunnelTypes: 'geneve'
-  NeutronNetworkType: ['geneve', 'vlan']
-  NeutronEnableDVR: false
-  NeutronPluginExtensions: "port_security,qos,segments,trunk,placement"
-  NeutronSriovAgentExtensions: "qos"
-  #NeutronTunnelTypes: 'vxlan'
-  #NeutronNetworkType: ['vxlan', 'vlan']
+  #NeutronTunnelTypes: 'geneve'
+  #NeutronNetworkType: ['geneve', 'vlan']
+  #NeutronEnableDVR: false
+  #NeutronPluginExtensions: "port_security,qos,segments,trunk,placement"
+  #NeutronSriovAgentExtensions: "qos"
+  NeutronTunnelTypes: 'vxlan'
+  NeutronNetworkType: ['vxlan', 'vlan']
 
   NeutronPhysicalDevMappings: ["sriov1:eno3", "sriov2:eno4"]
 

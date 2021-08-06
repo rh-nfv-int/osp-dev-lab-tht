@@ -3,6 +3,14 @@ resource_registry:
   OS::TripleO::Controller::Net::SoftwareConfig: nic-configs/offload/controller-offload.yaml
 
 parameter_defaults:
+  NeutronTunnelTypes: 'geneve'
+  NeutronNetworkType: ['geneve', 'vlan']
+  NeutronEnableDVR: false
+  NeutronPluginExtensions: "port_security,qos,segments,trunk,placement"
+  NeutronSriovAgentExtensions: "qos"
+  #NeutronTunnelTypes: 'vxlan'
+  #NeutronNetworkType: ['vxlan', 'vlan']
+
   NovaPCIPassthrough:
   - devname: "ens1f0"
     physical_network: "sriov1"

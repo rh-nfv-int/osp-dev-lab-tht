@@ -4,6 +4,16 @@ resource_registry:
   OS::TripleO::ControllerSriov::Net::SoftwareConfig: nic-configs/controller.yaml
 
 parameter_defaults:
+  NeutronTunnelTypes: 'geneve'
+  NeutronNetworkType: ['geneve', 'vlan']
+  NeutronEnableDVR: false
+  NeutronPluginExtensions: "port_security,qos,segments,trunk,placement"
+  NeutronSriovAgentExtensions: "qos"
+  #NeutronTunnelTypes: 'vxlan'
+  #NeutronNetworkType: ['vxlan', 'vlan']
+
+  ComputeSriovCount: 2
+
   NeutronBridgeMappings: 'datacentre:br-ex,sriov1:br-link1,sriov2:br-link2'
   NeutronFlatNetworks: 'datacentre,sriov1,sriov2'
   NeutronPhysicalDevMappings: ["sriov1:eno3", "sriov2:eno4"]
