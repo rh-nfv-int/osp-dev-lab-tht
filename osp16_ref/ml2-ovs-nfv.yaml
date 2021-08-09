@@ -9,6 +9,7 @@ parameter_defaults:
     OvsPmdCoreList: "1,13,2,14,3,15"
     OvsDpdkCoreList: "0,12"
     NovaComputeCpuDedicatedSet: ['4-11','16-23']
+    NovaComputeCpuSharedSet: ['0','12']
 
   ComputeOvsDpdkSriovParameters:
     KernelArgs: "default_hugepagesz=1GB hugepagesz=1G hugepages=48 intel_iommu=on iommu=pt isolcpus=1-11,13-23"
