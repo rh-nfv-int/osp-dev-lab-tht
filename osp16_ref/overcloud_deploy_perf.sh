@@ -16,6 +16,16 @@ if [ ! -d /home/stack/images ]; then
     popd
 fi
 
+OVERRIDE=""
+CMPT=$(openstack baremetal introspection data save compute-0)
+if [[ "$?" == "0" ]] ; then
+    IFS=$(echo $CMPT | jq '.inventory.interfaces' | jq length)
+    if [[ "$IFS" == "6" ]]; then
+        OVERRIDE="-e $USER_THT/network-environment-regular-override.yaml"
+    fi
+fi
+echo "OVERRIDE='$OVERRIDE'"
+
 openstack overcloud roles generate -o $HOME/roles_data.yaml Controller ComputeOvsDpdk ComputeSriov
 
 openstack overcloud deploy $PARAMS \
@@ -35,5 +45,5 @@ openstack overcloud deploy $PARAMS \
     -e $USER_THT/network-environment.yaml \
     -e $USER_THT/network-environment-perf.yaml \
     -e $USER_THT/ml2-ovs-nfv.yaml \
-    -e $HOME/containers-prepare-parameter.yaml
+    -e $HOME/containers-prepare-parameter.yaml $OVERRIDE
 
