@@ -1,0 +1,11 @@
+# Name of the network where the Virtual IP address should be allocated
+- network: storage_mgmt
+  dns_name: overcloud
+- network: storage
+  dns_name: overcloud
+- network: internal_api
+  dns_name: overcloud
+- network: external
+  subnet: external_subnet
+- network: ctlplane
+  dns_name: overcloud

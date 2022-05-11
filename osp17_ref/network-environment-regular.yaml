@@ -1,0 +1,50 @@
+#Templates for 17.0 are specified with parameters instead of resource_registry mapping
+resource_registry:
+  OS::TripleO::ComputeOvsDpdkSriov::Net::SoftwareConfig: OS::Heat::None
+  OS::TripleO::Controller::Net::SoftwareConfig: OS::Heat::None
+  OS::TripleO::ControllerSriov::Net::SoftwareConfig: OS::Heat::None
+  OS::TripleO::Services::CinderBackendDellPs: OS::Heat::None
+
+parameter_defaults:
+  ComputeOvsDpdkSriovNetworkConfigTemplate: '/home/stack/osp17_ref/nic-configs/computeovsdpdksriov.j2'
+  ControllerSriovNetworkConfigTemplate : '/home/stack/osp17_ref/nic-configs/controller.j2'
+
+  NeutronTunnelTypes: 'geneve'
+  NeutronNetworkType: ['geneve', 'vlan']
+  NeutronEnableDVR: false
+  NeutronPluginExtensions: "port_security,qos,segments,trunk,placement"
+  NeutronSriovAgentExtensions: "qos"
+  #NeutronTunnelTypes: 'vxlan'
+  #NeutronNetworkType: ['vxlan', 'vlan']
+  NeutronExternalNetworkBridge: "'br-ex'"
+
+  ComputeOvsDpdkSriovParameters:
+    NeutronPhysicalDevMappings: ["sriov1:eno3", "sriov2:eno4"]
+
+    NovaPCIPassthrough:
+    - devname: "eno3"
+      trusted: "true"
+      physical_network: "sriov1"
+    - devname: "eno4"
+      trusted: "true"
+      physical_network: "sriov2"
+
+  ControllerSriovParameters:
+    # Set OVN gateway router, required for external connectivity (SR-IOV)
+    OVNCMSOptions: "enable-chassis-as-gw"
+  ############################
+  #  Scheduler configuration #
+  ############################
+  NovaSchedulerDefaultFilters:
+    - "RetryFilter"
+    - "AvailabilityZoneFilter"
+    - "ComputeFilter"
+    - "ComputeCapabilitiesFilter"
+    - "ImagePropertiesFilter"
+    - "ServerGroupAntiAffinityFilter"
+    - "ServerGroupAffinityFilter"
+    - "PciPassthroughFilter"
+    - "NUMATopologyFilter"
+    - "AggregateInstanceExtraSpecsFilter"
+
+   #ComputeOvsDpdkSriovExtraConfig:
