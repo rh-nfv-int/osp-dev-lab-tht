@@ -162,7 +162,7 @@ resources:
             $network_config:
               network_config:
               - type: interface
-                name: eth0
+                name: nic1
                 use_dhcp: false
                 dns_servers:
                   get_param: DnsServers
